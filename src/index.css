@@ -24,3 +24,12 @@ hr{
 body{
   background-color: lig;
 }
+.box{
+  border: 2px solid black;
+  padding: 5px;
+  margin: 5px;
+}
+.CirclesWithBa{
+  width: '100';
+  color: blue;
+}

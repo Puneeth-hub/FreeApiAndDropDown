@@ -1,6 +1,6 @@
 import React  from "react";
 import { useQuery, gql } from "@apollo/client"; 
-import { TailSpin  } from "react-loader-spinner";
+import { CirclesWithBar  } from "react-loader-spinner";
 import './index.css' 
 
 const CONTENT_VALUES = gql`
@@ -20,7 +20,7 @@ const Message=(props)=>{
   const {loading, error, data} = useQuery(CONTENT_VALUES, {variables:{limit:props.count}})
   if(loading) return(
     <div className="loader-container">
-      <TailSpin  className='spinner-class'  visible={true} ariaLabel='tail-spin-loading'/>
+      <CirclesWithBar    visible={true} ariaLabel='tail-spin-loading'/>
       <p className='loading'>Loading..!</p>
     </div>
   )
@@ -33,14 +33,14 @@ const Message=(props)=>{
         <div className="middle-container">
       <li className="list-item">
       
-        {data && data.launchesPast.map(eachCore => (<><p>Local:{eachCore.launch_date_local}</p>
+        {data && data.launchesPast.map(eachCore => (<div className= 'box' ><p >Local:{eachCore.launch_date_local}</p>
         <p>unix: {eachCore.launch_date_unix}</p>
         <p>UTC: {eachCore.launch_date_utc}</p>
         <p>Name: {eachCore.mission_name}</p>
         <p>Id: {eachCore.mission_id}</p>
         <p>Details: {eachCore.details}</p>
-        <hr/>
-        </>))}
+        
+        </div>))}
         
       </li>
       </div>
